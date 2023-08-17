@@ -1,5 +1,5 @@
-*.py[cod]
 __pycache__
+README
 
 # asv stuff
 .asv/
