@@ -4,7 +4,7 @@
 
 Here you can find the glacier volume and area evolution, aggregated globally and for every RGI region separately. 
 
-At the moment, there are only projections available using OGGM v1.6.1 (folder: [1.6.1/](1.6.1/])) with the preprocessed glacier directory version 2023.3. These projections include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), and use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration. 
+At the moment, there are only projections available using OGGM v1.6.1 (folder: [1.6.1/](1.6.1/])) with the preprocessed glacier directory version 2023.3. These projections include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. 
 
 |![Figure 1](notebooks/global_glacier_volume_until2100_common_running_2100.png)|
 |:--:| 
@@ -16,7 +16,7 @@ Here is the code to create the figures above: [notebooks/analyse_csv_files_1.6.1
 
 We computed and show in the figures all GCMs and scenarios that are currently available at the OGGM cluster. However, you have to choose those scenarios that are suitable and representative for your study. [For example, you could select them after the method of Hausfather et al., 2022)](https://www.nature.com/articles/d41586-022-01192-2) or [aggregate them after their 2100 warming levels (e.g. as in Rounce et al., 2023)](https://doi.org/10.1126/science.abo1324).
 
-If you want `per-glacier` files, or other estimates than volume or area (e.g. the four components to compute glacier runoff, or the volume above sea-level), the non-aggregated raw oggm output files are here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/. These files are further documented in [the README of that folder](https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/README), where it is also explained how to rerun the projections. The aggregation from the raw files to the csv files was done via [notebooks/aggregate_csv_files_1.6.1.ipynb](notebooks/aggregate_csv_files_1.6.1.ipynb). 
+If you want `per-glacier` files, or other estimates than volume or area (e.g. the four components to compute glacier runoff, or the volume above sea-level), the non-aggregated raw oggm output files are here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/. These files are further documented in [README_extended_per_glacier_files.md](README_extended_per_glacier_files.md), where it is also explained how to rerun the projections. The aggregation from the raw files to the csv files was done via [notebooks/aggregate_csv_files_1.6.1.ipynb](notebooks/aggregate_csv_files_1.6.1.ipynb). 
 
 ----
 If you want to use the aggregated or the raw per-glacier data, please cite the dataset via:
@@ -29,12 +29,14 @@ In addition, cite OGGM [(Maussion et al., 2019)](https://doi.org/10.5194/gmd-12-
 ***Glacier aggregation option:*** 
 We estimated those glaciers that do not fail for all scenarios, GCMs and CMIP variations. As more glaciers fail when running the simulations until 2300, we separated between 
 - files with aggregated glaciers that run for all options until 2100 (`common_running_2100`)
-    - use these files if you are only interested in glacier projections untils 2100
+    - use these files if you are only interested in glacier projections until 2100
+    - Globally, 99.9% of the glacier area is simulated when looking into the common running glaciers until 2100. 
 - files with aggregated glaciers that run for all options until 2100 and until 2300 (`common_running_2100_2300`). 
     - use these files if you are interested in glacier projections until 2300
+    - The simulations until 2300 have more failing glaciers, specifically in RGI06 (Iceland) where only 26% of glaciers work until 2300. The reason is that some single GCMs predict colder than nowadays conditions, which creates growing glaciers that extend beyond the model border. However, these glaciers are rather small, and in total 91% of the initial glacier area can be simulated in RGI06. Similarly, in RGI08 (Scandinavia), only 92% of the glacier area can be simulated due to growing glaciers. However,  globally, 99.4% of the glacier area is simulated when looking into the common running glaciers until 2100 or 2300. 
 
 For each of the two options, we give additional statistics:
-- e.g. [1.6.1/common_running_2100/missing_region_overview.html](1.6.1/common_running_2100/missing_region_overview.html): missing glacier statistics
+- e.g. [1.6.1/common_running_2100/missing_region_overview.csv](1.6.1/common_running_2100/missing_region_overview.csv): missing glacier statistics
 - e.g. [1.6.1/common_running_2100_2300/rgi_ids_missing.json](1.6.1/common_running_2100_2300/rgi_ids_missing.json): glacier IDs that have been removed as at least one GCM or scenario failed on it for one of the CMIP options
 - e.g. [1.6.1/common_running_2100/metadata.csv](1.6.1/common_running_2100/metadata.csv):  can be helpful when doing analysis with the data (lists all the available files)
 
@@ -57,7 +59,7 @@ At the moment there are three options here. For all options, W5E5 was applied fr
     - main references ([Lange, 2019](https://doi.org/10.5194/gmd-12-3055-2019); [Lange, 2022](https://doi.org/10.5281/zenodo.2549631))
 
     
-(in the raw per-glacier data files, you can also find the same simulations using the GCMs from 2000 onwards, named `gcm_from_2000`)
+(in the raw per-glacier data files, you can also find the same simulations using the GCMs from 2000 onwards, named `gcm_from_2000` -> more in )
 
 The actual projections for the different scenarios are given in `{scenario}.csv` files in subfolders for every RGI region or globally. In every file, all GCM projections from one scenario (e.g. `ssp370.csv`) are given as different columns, where each of the rows shows one time point. 
 
