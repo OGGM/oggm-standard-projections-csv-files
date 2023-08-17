@@ -69,7 +69,7 @@ The actual projections for the different scenarios are given in `{scenario}.csv`
 
 ***File structure**:
 The file structure looks e.g. like that:
-- [1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv]
-- [1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv]
+- [1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv](1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv)
+- [1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv](1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv)
 
  
