@@ -8,9 +8,9 @@ At the moment, there are only projections available using OGGM v1.6.1 (folder: [
 
 |![Figure 1](notebooks/global_glacier_volume_until2100_common_running_2100.png)|
 |:--:| 
-| *Figure 1: Global glacier volume from 2000 to 2100 relative to 2020 (in %) for the different CMIP options using the common running glaciers until 2100. The amount of GCMs per scenario is given in the legend. * |
+| *Figure 1: Global glacier volume from 2000 to 2100 relative to 2020 (in %) for the different CMIP options using the common running glaciers until 2100. The amount of GCMs per scenario is given in the legend.* |
 |![Figure 2](notebooks/global_glacier_volume_until2300_common_running_2100_2300.png)|
-| *Figure 2: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP6 by using the common running glaciers until 2100 and 2300. The amount of GCMs per scenario is given in the legend. Note that the smaller GCM ensemble until 2300 is rather "hotter" than the more representative ensemble until 2100. * |
+| *Figure 2: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP6 by using the common running glaciers until 2100 and 2300. The amount of GCMs per scenario is given in the legend. Note that the smaller GCM ensemble until 2300 is rather "hotter" than the more representative ensemble until 2100.* |
 
 Here is the code to create the figures above: [notebooks/analyse_csv_files_1.6.1.ipynb](notebooks/analyse_csv_files_1.6.1.ipynb). 
 
