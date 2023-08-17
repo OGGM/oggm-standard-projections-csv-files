@@ -8,9 +8,9 @@ At the moment, there are only projections available using OGGM v1.6.1 (folder: [
 
 |![Figure 1](notebooks/global_glacier_volume_until2100_common_running_2100.png)|
 |:--:| 
-| *Figure 1: Global glacier volume from 2000 to 2100 relative to 2020 (in %) for the different CMIP options using the common running glaciers until 2100.* |
+| *Figure 1: Global glacier volume from 2000 to 2100 relative to 2020 (in %) for the different CMIP options using the common running glaciers until 2100. The amount of GCMs per scenario is given in the legend. * |
 |![Figure 2](notebooks/global_glacier_volume_until2300_common_running_2100_2300.png)|
-| *Figure 2: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP6 by using the common running glaciers until 2100 and 2300. Note that the smaller GCM ensemble until 2300 is rather "hotter" than the more representative ensemble until 2100* |
+| *Figure 2: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP6 by using the common running glaciers until 2100 and 2300. The amount of GCMs per scenario is given in the legend. Note that the smaller GCM ensemble until 2300 is rather "hotter" than the more representative ensemble until 2100. * |
 
 Here is the code to create the figures above: [notebooks/analyse_csv_files_1.6.1.ipynb](notebooks/analyse_csv_files_1.6.1.ipynb). 
 
@@ -53,20 +53,16 @@ At the moment there are three options here. For all options, W5E5 was applied fr
     - main reference [Taylor et al., (2012)](https://doi.org/10.1175/BAMS-D-11-00094.1)
 - ISIMIP3b_CMIP6/2100
     - internally bias-corrected to W5E5 using bias correction period 1979-2014 [(Lange, 2019)](https://doi.org/10.5194/gmd-12-3055-2019) and interpolated to a 0.5° spatial resolution, we did not apply any additional bias-correction on top of that
-    - we used the five primary GCMs from phase 3b of the Inter-Sectoral Impact Model Intercomparison Project (ISIMIP3b) for three different SSPs
+    - five primary GCMs from phase 3b of the Inter-Sectoral Impact Model Intercomparison Project (ISIMIP3b) for three different SSPs
     - main references ([Lange, 2019](https://doi.org/10.5194/gmd-12-3055-2019); [Lange, 2022](https://doi.org/10.5281/zenodo.2549631))
-used for the historical period of 1979–2019, while the five
-primary GCMs from phase 3b of the Inter-Sectoral Impact
-All temperature-index model choices in this study are based
-on the original temperature-index model of OGGM presented Model Intercomparison Project (ISIMIP3b, Lange, 2019, 2022)
-in Maussion and others (2019), which itself builds upon Marzeion are used for the future period of 2020–2100.
+
     
 (in the raw per-glacier data files, you can also find the same simulations using the GCMs from 2000 onwards, named `gcm_from_2000`)
 
 The actual projections for the different scenarios are given in `{scenario}.csv` files in subfolders for every RGI region or globally. In every file, all GCM projections from one scenario (e.g. `ssp370.csv`) are given as different columns, where each of the rows shows one time point. 
 
 
-***File structure**:
+***File structure***:
 The file structure looks e.g. like that:
 - [1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv](1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv)
 - [1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv](1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv)
