@@ -4,12 +4,16 @@
 
 **If you are only interested in regional volume or area changes (globally or per RGI region), go to [README.md](https://github.com/oggm/oggm-standard-projections-csv-files).**
 
-At the moment, there are only projections available using OGGM v1.6.1 with the preprocessed glacier directory version 2023.3 [https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/](https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/). These projections use elevation-band flowlines, include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), and use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. 
+At the moment, there are only projections available using OGGM v1.6.1 with the preprocessed glacier directory version 2023.3, which coun can find here:
+[https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/](https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/).
 
-We computed all GCMs and scenarios that are currently available at the OGGM cluster. However, you have to choose those scenarios that are suitable and representative for your study. [For example, you could select them after the method of Hausfather et al., 2022)](https://www.nature.com/articles/d41586-022-01192-2) or [aggregate them after their 2100 warming levels (e.g. as in Rounce et al., 2023)](https://doi.org/10.1126/science.abo1324).
+These projections use elevation-band flowlines, include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), and use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. 
+
+We computed all GCMs and scenarios that are currently available at the OGGM cluster. However, you have to choose those scenarios that are suitable and representative for your study. [For example, you could select them after the method of Hausfather et al. (2022)](https://www.nature.com/articles/d41586-022-01192-2) or [aggregate them after their 2100 warming levels (e.g. as in Rounce et al.2023)](https://doi.org/10.1126/science.abo1324).
 
 In the subfolders, we give the netCDF files for different CMIP and final year options for all of the 19 RGI regions. That means, an example filepath looks like that:
-https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2300/RGI06/run_hydro_gcm_from_2000_ACCESS-CM2_ssp126_bc_2000_2019_Batch_0_1000.nc
+
+https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2300/RGI06/run_hydro_gcm_from_2000_ACCESS-CM2_ssp126_bc_2000_2019_Batch_0_1000.nc 
 (the different options are explained in detail below).
 
 Each netCDF file contains the projections from up to 1000 glaciers for a single GCM, scenario, RGI region and historical projection option from 2000 until 2100. The timestep always corresponds to the glacier state at the beginning of the year, i.e., 2000 means 01-01-2000. We have run the `run_with_hydro` task of OGGM on a monthly basis, and thus, the following variables are included:
@@ -60,7 +64,7 @@ Note, that some glaciers will have NaN values, so if you aggregate it, you need 
 The annual glacier runoff that was computed here is the sum of annual melt and liquid precipitation on and off the glacier using a fixed-gauge with a glacier minimum reference area from year 2000 (unit: kg year-1).
 - We also have already postprocessed per-glacier annual and monthly runoff files aggregated for every basin ([we used this notebook](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/compute_runoff_for_basins.ipynb), at the moment only for CMIP6 until 2100). The basin files are available here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2100/basins/. All glaciers of a basin are aggregated in one file, and there are different files for the GCM, Scenario and historical projection option. The files of each basin are in one subfolder, with the subfolder name being the MRBID of that basin. The basin files contain the variables: volume, area, runoff and runoff_monthly. 
 
-**-> More details on how to handle the data (for example to estimate glacier runoff) is given in this jupyter notebook: https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/analysis_notebooks/workflow_to_analyse_per_glacier_projection_files.ipynb?flush_cache=true** 
+**-> More details on how to handle the data (for example to estimate glacier runoff) is given in [this jupyter notebook](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/analysis_notebooks/workflow_to_analyse_per_glacier_projection_files.ipynb?flush_cache=true)** 
 
 
 ***CMIP option and final year:***
@@ -77,7 +81,7 @@ At the moment there are three options here (https://cluster.klima.uni-bremen.de/
     - five primary GCMs from phase 3b of the Inter-Sectoral Impact Model Intercomparison Project (ISIMIP3b) for three different SSPs
     - main references ([Lange, 2019](https://doi.org/10.5194/gmd-12-3055-2019); [Lange, 2022](https://doi.org/10.5281/zenodo.2549631))
     
-*For CMIP5 and CMIP6, we have used  here the same bias correction period as in [Rounce et al., (2023)](https://doi.org/10.1126/science.abo1324), i.e. from Jan 2000 to Dec 2019. However,  using a bias correction period of 1979-2014 instead of 2000-2019 (tested on five GCMs) resulted in glacier volume differences that were globally up to 20% different until 2100 for a single GCM. (analysed by Lilian Schuster, uncleaned notebook with the analysis https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/_uncleaned_analysis_notebooks/volume_evolution_common_running_glaciers.ipynb)*    
+*For CMIP5 and CMIP6, we have used  here the same bias correction period as in [Rounce et al., (2023)](https://doi.org/10.1126/science.abo1324), i.e. from Jan 2000 to Dec 2019. However,  using a bias correction period of 1979-2014 instead of 2000-2019 (tested on five GCMs) resulted in glacier volume differences that were globally up to 20% different until 2100 for a single GCM. (analysed by Lilian Schuster, [uncleaned notebook with the analysis](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/_uncleaned_analysis_notebooks/volume_evolution_common_running_glaciers.ipynb))*    
 
 
 **Historical projections from 2000-2019** 
@@ -87,7 +91,7 @@ Inside of the RGI region folders, there are two options how the historical proje
 - `gcm_from_2000`: W5E5 is only used to calibrate the mass-balance model. For the actual projections, the individual GCMs (and scenarios) are used form 2000 onwards. 
     - In the period 2000-2019, different GCMs create different output. 
     
-*The influence of the historical projection choice is very small after 2000-2019 (regionally < 2% after 2050, and globally invisible from 2000 onwards). However, the historical projection choice changes the projections over the period 2000-2019 by up to 8% regionally estimates although the CMIP GCMs were bias-corrected to that time period. (analysed by Lilian Schuster, uncleaned notebook with the analysis https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/_uncleaned_analysis_notebooks/volume_evolution_common_running_glaciers.ipynb)*
+*The influence of the historical projection choice is very small after 2000-2019 (regionally < 2% after 2050, and globally invisible from 2000 onwards). However, the historical projection choice changes the projections over the period 2000-2019 by up to 8% regionally estimates although the CMIP GCMs were bias-corrected to that time period. (analysed by Lilian Schuster, [uncleaned notebook with the analysis](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/_uncleaned_analysis_notebooks/volume_evolution_common_running_glaciers.ipynb))*
 
  
  ----
