@@ -2,7 +2,7 @@
 
 ## Extended documentation of the raw oggm-output files and documentation of the standard (CMIP) projections computed with OGGM
 
-**If you are only interested in regional volume or area changes (globally or per RGI region), go to [README.md](https://github.com/oggm/oggm-standard-projections-csv-files). This extended README describes the data format of the raw-output and how it was created.**
+**If you are only interested in regional volume or area changes (globally or per RGI region), go to [README.md](https://github.com/oggm/oggm-standard-projections-csv-files).**
 
 At the moment, there are only projections available using OGGM v1.6.1 with the preprocessed glacier directory version 2023.3 [https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/](https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/). These projections use elevation-band flowlines, include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), and use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. 
 
