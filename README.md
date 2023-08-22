@@ -1,8 +1,18 @@
 # oggm-standard-projections-csv-files
 
+OGGM provides what we like to call standard projections. Currently we make these future simulations available in two different formats, raw and aggregated data. Aggregated data is provided for both glacier volume and area evolution, aggregated globally and for every RGI region separately. This file contains the discription of the aggregated data. This description includes the experimental set-up, the data structure and a comparison to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324).
+
+If you want `per-glacier` files, or other estimates than volume or area (e.g. the four components to compute glacier runoff, or the volume above sea-level), the non-aggregated raw oggm output files are here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/. These files are further documented in [README_extended_per_glacier_files.md](README_extended_per_glacier_files.md), where it is also explained how to rerun the projections. The aggregation from the raw files to the csv files was done via [notebooks/aggregate_csv_files_1.6.1.ipynb](notebooks/aggregate_csv_files_1.6.1.ipynb). 
+
+----
+If you use the aggregated or the raw per-glacier data, please cite the dataset via:
+- zenodo-link ...
+In addition, cite OGGM [(Maussion et al., 2019)](https://doi.org/10.5194/gmd-12-909-2019) and the CMIP option that you are using (references are linked below).
+---
+
 **Repository of data files and documentation of the standard (CMIP) projections computed with OGGM**
 
-Here you can find the glacier volume and area evolution, aggregated globally and for every RGI region separately. 
+***Experimental set-up***
 
 At the moment, there are only projections available using OGGM v1.6.1 (folder: [1.6.1/](1.6.1/])) with the preprocessed glacier directory version 2023.3. These projections use elevation-band flowlines, include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. The regional glacier volume matches roughly the [Farinotti et al., 2019](https://doi.org/10.1038/s41561-019-0300-3) consensus estimate by calibrating the glen-A parameter regionally. 
 
@@ -12,17 +22,11 @@ At the moment, there are only projections available using OGGM v1.6.1 (folder: [
 |![Figure 2](notebooks/global_glacier_volume_until2300_common_running_2100_2300.png)|
 | *Figure 2: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP6 by using the common running glaciers until 2100 and 2300. The amount of GCMs per scenario is given in the legend. Note that the smaller GCM ensemble until 2300 is rather "hotter" than the more representative ensemble until 2100.* |
 
+***Simulation comparison***
+
 In comparison to [Rounce et al., 2023](https://doi.org/10.1126/science.abo1324), OGGM v1.6.1 creates globally more relative glacier volume loss, specifically for very warm scenarios and for RGI19 (Antarctic and Subantarctic). [The differences in the glacier volume loss relative to 2020 are 10% under SSP5-8.5](notebooks/global_glacier_volume_comparison_to_rounce_et_al_2023_ssp585.png). Globaly (In RGI19), the glacier volume is 12% (20-30%) larger at the initial state. The larger initial glacier volume might explain why the [Rounce et al., 2023](https://doi.org/10.1126/science.abo1324) simulations result in less glacier volume loss than the OGGM v1.6.1 projections. The code to create the figures above, additional regional analysis and comparisons to Rounce et al., 2023 is here: [notebooks/analyse_csv_files_1.6.1.ipynb](notebooks/analyse_csv_files_1.6.1.ipynb). 
 
 We computed and show in the figures all GCMs and scenarios that are currently available at the OGGM cluster. However, you have to choose those scenarios that are suitable and representative for your study. [For example, you could select them after the method of Hausfather et al., 2022)](https://www.nature.com/articles/d41586-022-01192-2) or [aggregate them after their 2100 warming levels (e.g. as in Rounce et al., 2023](https://doi.org/10.1126/science.abo1324).
-
-If you want `per-glacier` files, or other estimates than volume or area (e.g. the four components to compute glacier runoff, or the volume above sea-level), the non-aggregated raw oggm output files are here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/. These files are further documented in [README_extended_per_glacier_files.md](README_extended_per_glacier_files.md), where it is also explained how to rerun the projections. The aggregation from the raw files to the csv files was done via [notebooks/aggregate_csv_files_1.6.1.ipynb](notebooks/aggregate_csv_files_1.6.1.ipynb). 
-
-----
-If you want to use the aggregated or the raw per-glacier data, please cite the dataset via:
-- zenodo-link ...
-In addition, cite OGGM [(Maussion et al., 2019)](https://doi.org/10.5194/gmd-12-909-2019) and the CMIP option that you are using (references are linked below).
----
 
 ## Some additional informations:
 
