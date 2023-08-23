@@ -14,10 +14,10 @@ In addition, cite OGGM [(Maussion et al., 2019)](https://doi.org/10.5194/gmd-12-
 
 ***Model set-up***
 
-At the moment, there are only projections available using OGGM v1.6.1 with the preprocessed glacier directory version 2023.3, which you can find here:
+At the moment, there are only projections available using OGGM v1.6.1 with the [preprocessed glacier directory version 2023.3](https://cluster.klima.uni-bremen.de/~oggm/gdirs/oggm_v1.6/L3-L5_files/2023.3/elev_bands/W5E5_spinup/), which you can find here:
 [https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/](https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/).
 
-These projections use elevation-band flowlines, include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new informed 3-step per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), and use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. 
+These projections use [elevation-band flowlines](https://docs.oggm.org/en/stable/flowlines.html#elevation-bands-flowlines), include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new informed 3-step per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), and use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration and a border of 160. 
 
 We computed all GCMs and scenarios that are currently available at the OGGM cluster. However, you have to choose those scenarios that are suitable and representative for your study. [For example, you could select them after the method of Hausfather et al. (2022)](https://www.nature.com/articles/d41586-022-01192-2) or [aggregate them after their 2100 warming levels (e.g. as in Rounce et al., 2023)](https://doi.org/10.1126/science.abo1324).
 
@@ -136,4 +136,5 @@ To run similar projections (for example with another bias correction period), yo
     - originally all output goes into the `output` folder here, but we moved it to https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/
     
 - https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/compute_runoff_for_basins.ipynb
-    - computes annual and monthly runoff for every basin and saves it in https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/**/basins
+    - computes annual and monthly runoff for every basin for CMIP6 until 2100 and saves it in https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2100/basins/
+

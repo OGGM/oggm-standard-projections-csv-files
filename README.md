@@ -14,7 +14,7 @@ In addition, cite OGGM [(Maussion et al., 2019)](https://doi.org/10.5194/gmd-12-
 
 ***Experimental set-up***
 
-At the moment, there are only projections available using OGGM v1.6.1 (folder: [1.6.1/](1.6.1/])) with the preprocessed glacier directory version 2023.3. These projections use elevation-band flowlines, include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new informed 3-step per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration. The regional glacier volume matches roughly the [Farinotti et al. (2019)](https://doi.org/10.1038/s41561-019-0300-3) consensus estimate by calibrating the glen-A parameter regionally. 
+At the moment, there are only projections available using OGGM v1.6.1 (folder: [1.6.1/](1.6.1/])) with the [preprocessed glacier directory version 2023.3](https://cluster.klima.uni-bremen.de/~oggm/gdirs/oggm_v1.6/L3-L5_files/2023.3/elev_bands/W5E5_spinup/). These projections use  [elevation-band flowlines](https://docs.oggm.org/en/stable/flowlines.html#elevation-bands-flowlines), include the [dynamical spinup](https://docs.oggm.org/en/latest/dynamic-spinup.html), the [new informed 3-step per-glacier geodetic calibration method](https://docs.oggm.org/en/latest/mass-balance-monthly.html), use the W5E5v2.0 climate dataset [(Lange and others, 2021)](https://doi.org/10.48364/ISIMIP.342217) for calibration. The regional glacier volume matches roughly the [Farinotti et al. (2019)](https://doi.org/10.1038/s41561-019-0300-3) consensus estimate by calibrating the glen-A parameter regionally. 
 
 |![Figure 1](notebooks/global_glacier_volume_until2100_common_running_2100.png)|
 |:--:| 
@@ -24,7 +24,7 @@ At the moment, there are only projections available using OGGM v1.6.1 (folder: [
 
 ***Simulation comparison***
 
-In comparison to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324), OGGM v1.6.1 creates globally more relative glacier volume loss, specifically for very warm scenarios and for RGI region 19 (Antarctic and Subantarctic). [The differences in the glacier volume loss relative to 2020 are 10% under SSP5-8.5](notebooks/global_glacier_volume_comparison_to_rounce_et_al_2023_ssp585.png). Globaly, the glacier volume is 12% (20-30%) larger at the initial state. The larger initial glacier volume might explain why the [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324) simulations result in less glacier volume loss than the OGGM v1.6.1 projections. The code to create the figures above, additional regional analysis and comparisons to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324) is here: [notebooks/analyse_csv_files_1.6.1.ipynb](notebooks/analyse_csv_files_1.6.1.ipynb). 
+In comparison to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324), OGGM v1.6.1 creates globally more relative glacier volume loss, specifically for very warm scenarios and for RGI region 19 (Antarctic and Subantarctic). [The differences in the glacier volume loss relative to 2020 are 10% under SSP5-8.5](notebooks/global_glacier_volume_comparison_to_rounce_et_al_2023_ssp585.png). Globally, the glacier volume is 12% (20-30%) larger at the initial state. The code to create the figures above and additional regional analysis are here [notebooks/analyse_csv_files_1.6.1.ipynb](notebooks/analyse_csv_files_1.6.1.ipynb), additional comparisons to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324) are here: [notebooks/compare_oggm_1.6.1_to_rounce_et_al_2023.ipynb](notebooks/compare_oggm_1.6.1_to_rounce_et_al_2023.ipynb).
 
 We computed and show in the figures all GCMs and scenarios that are currently available at the OGGM cluster. However, you might have to make a selection of those scenarios that are suitable and representative for your case. [For example, you could select them after the method of Hausfather et al. (2022)](https://www.nature.com/articles/d41586-022-01192-2) or [aggregate them after their 2100 warming levels (e.g. as in Rounce et al., 2023)](https://doi.org/10.1126/science.abo1324).
 
@@ -71,5 +71,3 @@ The actual projections for the different scenarios are given in `{scenario}.csv`
 The file structure looks e.g. like that:
 - [1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv](1.6.1/common_running_2100/volume/CMIP5/2100/RGI01/rcp85.csv)
 - [1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv](1.6.1/common_running_2100_2300/volume/CMIP6/2300/global/ssp126.csv)
-
- 
