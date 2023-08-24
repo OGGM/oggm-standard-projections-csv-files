@@ -19,8 +19,10 @@ At the moment, there are only projections available using OGGM v1.6.1 (folder: [
 |![Figure 1](notebooks/global_glacier_volume_until2100_common_running_2100.png)|
 |:--:| 
 | *Figure 1: Global glacier volume from 2000 to 2100 relative to 2020 (in %) for the different CMIP options using the common running glaciers until 2100. The amount of GCMs per scenario is given in the legend.* |
-|![Figure 2](notebooks/global_glacier_volume_until2300_common_running_2100_2300.png)|
+|![Figure 2](notebooks/global_glacier_volume_until2300_common_running_2100_2300_cmip6.png)|
 | *Figure 2: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP6 by using the common running glaciers until 2100 and 2300. The amount of GCMs per scenario is given in the legend. Note that the smaller GCM ensemble until 2300 is rather "hotter" than the more representative ensemble until 2100.* |
+|![Figure 3](notebooks/global_glacier_volume_until2300_common_running_2100_2300_cmip5.png)|
+| *Figure 3: : Global glacier volume from 2000 to 2300 relative to 2020 (in %) only for CMIP5 by using the common running glaciers until 2100 and 2300. The amount of GCMs per scenario is given in the legend.* |
 
 ***Simulation comparison***
 
@@ -48,12 +50,12 @@ For each of the two options, we give additional statistics:
 - area is given in m<sup>2</sup>
 
 ***CMIP option and final year:***
-At the moment there are three options here. For all options, W5E5 was applied from 2000-2019 and the GCMs were applied from 2020 onwards until 2100 or 2300. So far, we only did projections until 2300 for CMIP6, but projections until 2300 for CMIP5 will be soon available. 
+At the moment there are three options here. For all options, W5E5 was applied from 2000-2019 and the GCMs were applied from 2020 onwards until 2100 or 2300. Note that the sample of GCMs going until 2300 is much smaller than the one going until 2100. ISIMIP3b_CMIP6 only goes until 2100, thus projections only go until 2100. 
 
 - CMIP6/2100 or CMIP6/2300
     - bias correction period 2000-2019
     - main reference: [Eyring et al. (2016)](https://doi.org/10.5194/gmd-9-1937-2016)
-- CMIP5/2100
+- CMIP5/2100 or CMIP5/2300
     - bias correction period 2000-2019
     - main reference [Taylor et al., (2012)](https://doi.org/10.1175/BAMS-D-11-00094.1)
 - ISIMIP3b_CMIP6/2100
