@@ -28,7 +28,7 @@ In the subfolders, we give the netCDF files for different CMIP and final year op
 https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2300/RGI06/run_hydro_gcm_from_2000_ACCESS-CM2_ssp126_bc_2000_2019_Batch_0_1000.nc 
 (the different options are explained in detail below).
 
-Each netCDF file contains the projections from up to 1000 glaciers for a single GCM, scenario, RGI region and historical projection option from 2000 until 2100. The timestep always corresponds to the glacier state at the beginning of the year, i.e., 2000 means 01-01-2000. We have run the `run_with_hydro` task of OGGM on a monthly basis, and thus, the following variables are included:
+Each netCDF file contains the projections from up to 1000 glaciers for a single GCM, scenario, RGI region and historical projection option from 2000 until 2099, 2100, 2299 or 2300. The timestep always corresponds to the glacier state at the beginning of the year, i.e., 2000 means 01-01-2000. We have run the `run_with_hydro` task of OGGM on a monthly basis, and thus, the following variables are included:
 
 | variable                     | description                                                        | unit       | coords                         |
 |:-----------------------------|:-------------------------------------------------------------------|:-----------|:-------------------------------|
@@ -72,20 +72,23 @@ with xr.open_mfdataset(path + 'RGI11/run_hydro_w5e5_gcm_merged_CanESM5_ssp126_*.
     ds['runoff'] = ds['melt_off_glacier']+ds['melt_on_glacier']+ ds['liq_prcp_off_glacier'] +ds['liq_prcp_on_glacier']
     ds = ds['runoff'].load()
 ```
+
 Note, that some glaciers will have NaN values, so if you aggregate it, you need to either only use the common running glaciers (the method used to create the aggregated csv files) or do some filling. 
 The annual glacier runoff that was computed here is the sum of annual melt and liquid precipitation on and off the glacier using a fixed-gauge with a glacier minimum reference area from year 2000 (unit: kg year-1).
-- We also have already postprocessed per-glacier annual and monthly runoff files aggregated for every basin ([we used this notebook](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/compute_runoff_for_basins.ipynb), at the moment only for CMIP6 until 2100). The basin files are available here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2100/basins/. All glaciers of a basin are aggregated in one file, and there are different files for different simulations. The files of each basin are in one subfolder, with the subfolder name being the MRBID of that basin. The basin files contain the variables: volume, area, runoff and runoff_monthly. 
+- We also have already postprocessed per-glacier annual and monthly runoff files aggregated for every basin ([we used this notebook](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/_run_scripts/compute_runoff_for_basins.ipynb), at the moment only for CMIP6 until 2100). The basin files are available here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/CMIP6/2100/basins/. All glaciers of a basin are aggregated in one file, and there are different files for different simulations. The files of each basin are in one subfolder, with the subfolder name being the MRBID of that basin. The basin files contain the variables: volume, area, runoff and runoff_monthly. The runoff components can not be computed for the last year, thus the last year has NaN values. 
+
 
 **-> More details on how to handle the data (for example to estimate glacier runoff) is given in [this jupyter notebook](https://nbviewer.org/urls/cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/analysis_notebooks/workflow_to_analyse_per_glacier_projection_files.ipynb?flush_cache=true)** 
 
 
 ***CMIP option and final year:***
-At the moment there are three categories of forcing data that have been used for the simulations (https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/). For all options, we used the bias-corrected GCMs to project glacier changes until 2100. Only for CMIP6, we also repeated the simulations until 2300. Note, that we did two separate runs, as there are glaciers that fail before 2300, but not until 2100 (specifically in Iceland, RGI region 6, see link to the error_analysis notebook ...). 
+At the moment there are three categories of forcing data that have been used for the simulations (https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/oggm_v16/2023.3/). For all options, we used the bias-corrected GCMs to project glacier changes until 2100 or 2300.
+Note that the sample of GCMs going until 2300 is much smaller than the one going until 2100. ISIMIP3b_CMIP6 only goes until 2100, thus projections only go until 2100. Note, that we did two separate runs, once until 2100 and once until 2300, for GCMs having data until 2300, as there are glaciers that fail before 2300, but not until 2100 (specifically in Iceland, RGI region 6, see the overview table in [notebooks/missing_glacier_area_stats.png](notebooks/missing_glacier_area_stats.png)). 
 
 - CMIP6/2100 or CMIP6/2300
     - bias correction period 2000-2019 (file path named: `bc_2000_2019`)
     - main reference: [Eyring et al. (2016)](https://doi.org/10.5194/gmd-9-1937-2016)
-- CMIP5/2100
+- CMIP5/2100 or CMIP5/2300
     - bias correction period 2000-2019 (file path named: `bc_2000_2019`)
     - main reference [Taylor et al. (2012)](https://doi.org/10.1175/BAMS-D-11-00094.1)
 - ISIMIP3b_CMIP6/2100
