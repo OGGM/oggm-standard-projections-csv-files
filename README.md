@@ -1,13 +1,23 @@
 # oggm-standard-projections-csv-files
 
-OGGM provides what we like to call standard projections. Currently we make these future CMIP forced global glacier simulations available in two different formats, raw and aggregated data. Aggregated data is provided for both glacier volume and area evolution, aggregated globally and for every RGI region separately. This file contains the description of the aggregated data. This description includes the experimental set-up, a brief comparison to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324) and information on the data structure.
+Since OGGM v1.6.1, each version of OGGM now provides a set of global glacier
+projections realized with the default set-up of OGGM for that version.
+We provide an OGGM simulation for all climate models we are aware of and have
+access to.
+
+This file contains the description of the aggregated data. This description includes the experimental set-up, a brief comparison to [Rounce et al. (2023)](https://doi.org/10.1126/science.abo1324) and information on the data structure.
 
 If you want `per-glacier` files, or other estimates than volume or area (e.g. the four components to compute glacier runoff, or the volume above sea-level), the non-aggregated raw oggm output files are here https://cluster.klima.uni-bremen.de/~oggm/oggm-standard-projections/. These files are further documented in [README_extended_per_glacier_files.md](README_extended_per_glacier_files.md), where it is also explained how to rerun the projections. The aggregation from the raw files to the csv files was done via [notebooks/aggregate_csv_files_1.6.1.ipynb](notebooks/aggregate_csv_files_1.6.1.ipynb). 
 
 ----
-If you use the aggregated or the raw per-glacier data, please cite the dataset via:
-- zenodo-link ...
-In addition, cite OGGM [(Maussion et al., 2019)](https://doi.org/10.5194/gmd-12-909-2019) and the CMIP option that you are using (references are linked below).
+
+If you use these data (either aggregated csv or the per-glacier netcdf files), please cite the dataset as following:
+
+- Cite ZENODO
+- Cite OGGM (Maussion et al., 2019) and the specific OGGM version as specified in the [OGGM documentation](https://docs.oggm.org/en/stable/citing-oggm.html)
+
+In addition, we recommend to refer to the CMIP option that you are using (references are linked below).
+
 ---
 
 **Repository of data files and documentation of the standard (CMIP) projections computed with OGGM**
@@ -66,8 +76,7 @@ At the moment there are three options here. For all options, W5E5 was applied fr
     
 (in the raw per-glacier data files, you can also find the same simulations using the GCMs from 2000 onwards, named `gcm_from_2000` -> more in [README_extended_per_glacier_files.md](README_extended_per_glacier_files.md))
 
-The actual projections for the different scenarios are given in `{scenario}.csv` files in subfolders for every RGI region or globally. In every file, all GCM projections from one scenario (e.g. `ssp370.csv`) are given as different columns, where each of the rows shows one time point. 
-
+The actual projections for the different scenarios are given in `{scenario}.csv` files in subfolders for every RGI region or globally. In every file, all GCM projections from one scenario (e.g. `ssp370.csv`) are given as different columns, where each of the rows shows one time point.
 
 ***File structure***:
 The file structure looks e.g. like that:
