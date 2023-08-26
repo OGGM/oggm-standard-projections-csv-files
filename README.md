@@ -23,7 +23,8 @@ If you use these data (either aggregated csv or the per-glacier netcdf files), p
 
 *Lilian Schuster, Patrick Schmitt, Anouk Vlug, & Fabien Maussion. (2023). OGGM/oggm-standard-projections-csv-files: v1.0 (v1.0). Zenodo. https://doi.org/10.5281/zenodo.8286065*
 
-In addition, please cite OGGM ([Maussion et al., (2019)](https://doi.org/10.5194/gmd-12-909-2019)) and the specific OGGM version as specified in the [OGGM documentation](https://docs.oggm.org/en/stable/citing-oggm.html)we recommend to refer to the CMIP option that you are using (references are linked below).
+In addition, please cite OGGM ([Maussion et al., (2019)](https://doi.org/10.5194/gmd-12-909-2019)) and the specific OGGM version as specified in the [OGGM documentation](https://docs.oggm.org/en/stable/citing-oggm.html). 
+We also recommend to refer to the CMIP option that you are using (references are linked below).
 
 ---
 
