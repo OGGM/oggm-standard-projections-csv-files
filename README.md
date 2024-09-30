@@ -1,6 +1,6 @@
 # OGGM global glacier projections
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7718476.svg)](https://doi.org/10.5281/zenodo.7718476)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8286064.svg)](https://doi.org/10.5281/zenodo.8286064)
 
 Since OGGM v1.6.1, each version of OGGM now provides a set of global glacier
 projections realized with the default set-up of OGGM for that version.
